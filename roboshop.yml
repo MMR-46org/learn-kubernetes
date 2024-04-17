@@ -8,5 +8,5 @@ spec:
       image: madhanmohanreddyeeda/github-repo-frontend
       ports:
         - containerPort: 80
-          hostport: 10000
+          hostPort: 10000
 
