@@ -6,7 +6,66 @@ spec:
   containers:
     - name: nginx
       image: madhanmohanreddyeeda/github-repo-frontend
-      ports:
-        - containerPort: 80
-          hostPort: 10000
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: catalogue
+spec:
+  containers:
+    - name: catalogue
+      image: madhanmohanreddyeeda/github-repo-catalogue
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cart
+spec:
+  containers:
+    - name: cart
+      image: madhanmohanreddyeeda/github-repo-cart
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shipping
+spec:
+  containers:
+    - name: shipping
+      image: madhanmohanreddyeeda/github-repo-shipping
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: payment
+spec:
+  containers:
+    - name: payment
+      image: madhanmohanreddyeeda/github-repo-payment
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dispatch
+spec:
+  containers:
+    - name: dispatch
+      image: madhanmohanreddyeeda/github-repo-dispatch
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: user
+spec:
+  containers:
+    - name: user
+      image: madhanmohanreddyeeda/github-repo-user
+
+
 
