@@ -22,8 +22,7 @@ spec:
           name: parameters
       env:
         - name: PARAMS
-          value: "dev.roboshop.docdb.endpoint dev.roboshop.docdb.username dev.roboshop.docdb.password"
-
+          value: "dev.roboshop.catalogue.MONGO_URL,MONGO_URL"
   containers:
     - name: catalogue
       image: madhanmohanreddyeeda/github-repo-catalogue
