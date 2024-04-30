@@ -8,6 +8,7 @@ spec:
   containers:
     - name: nginx
       image: madhanmohanreddyeeda/github-repo-frontend
+      imagePullPolicy: Always
 
 ---
 apiVersion: v1
