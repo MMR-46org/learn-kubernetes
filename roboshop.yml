@@ -104,6 +104,7 @@ kind: Service
 metadata:
   name: frontend
 spec:
+  type: loadBalancer
   selector:
     app: frontend
   ports:
