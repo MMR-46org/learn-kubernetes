@@ -104,7 +104,7 @@ kind: Service
 metadata:
   name: frontend
 spec:
-  type: LoadBalancer
+#  type: LoadBalancer  // this is one of the option for creating a load balancer.
   selector:
     app: frontend
   ports:
