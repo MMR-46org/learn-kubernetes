@@ -86,25 +86,9 @@ metadata:
   labels:
     app: cart
 spec:
-  initContainers:
-    - name: parameters-pull
-      image: docker.io/madhanmohanreddyeeda/github-repo-parameter-store-init-container-image
-      imagePullPolicy: Always
-      volumeMounts:
-        - mountPath: /parameters
-          name: parameters
-      env:
-        - name: PARAMS
-          value: "dev.roboshop.user.MONGO_URL,MONGO_URL  dev.roboshop.user.REDIS_HOST,REDIS_HOST"
   containers:
-    - name: user
-      image: madhanmohanreddyeeda/github-repo-user
-      volumeMounts:
-        - mountPath: /parameters
-          name: parameters
-  volumes:
-    - name: parameters
-      emptyDir: { }
+    - name: cart
+      image: madhanmohanreddyeeda/github-repo-cart
 
 ---
 apiVersion: v1
@@ -150,9 +134,25 @@ metadata:
   labels:
     app: user
 spec:
+  initContainers:
+    - name: parameters-pull
+      image: docker.io/madhanmohanreddyeeda/github-repo-parameter-store-init-container-image
+      imagePullPolicy: Always
+      volumeMounts:
+        - mountPath: /parameters
+          name: parameters
+      env:
+        - name: PARAMS
+          value: "dev.roboshop.user.MONGO_URL,MONGO_URL  dev.roboshop.user.REDIS_HOST,REDIS_HOST"
   containers:
     - name: user
       image: madhanmohanreddyeeda/github-repo-user
+      volumeMounts:
+        - mountPath: /parameters
+          name: parameters
+  volumes:
+    - name: parameters
+      emptyDir: { }
 
 ---
 apiVersion: v1
