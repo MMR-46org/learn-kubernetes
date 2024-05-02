@@ -141,11 +141,13 @@ kind: Job
 metadata:
   name: shipping-schema-load
 spec:
+  backoffLimit: 4
   template:
     spec:
+      restartPolicy: Never
       volumes:
         - name: parameters
-          emptyDir: { }
+          emptyDir: {}
       initContainers:
         - name: parameters-pull
           image: docker.io/madhanmohanreddyeeda/github-repo-parameter-store-init-container-image
@@ -155,7 +157,7 @@ spec:
               name: parameters
           env:
             - name: PARAMS
-              value: "dev.roboshop.rds.endpoint,DB_HOST  dev.roboshop.rds.username,DB_USER  dev.roboshop.rds.password,DB_PASS"
+              value: "dev.roboshop.rds.endpoint,DB_HOST dev.roboshop.rds.username,DB_USER dev.roboshop.rds.password,DB_PASS"
       containers:
         - name: schema-load
           image: docker.io/madhanmohanreddyeeda/github-repo-schema-loader
@@ -168,8 +170,6 @@ spec:
           volumeMounts:
             - mountPath: /parameters
               name: parameters
-      restartPolicy: Never
-  backoffLimit: 4
 
 ---
 apiVersion: v1
