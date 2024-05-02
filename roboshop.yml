@@ -124,7 +124,7 @@ metadata:
 spec:
   containers:
     - name: dispatch
-      image: madhanmohanreddyeeda/github-repo-dispatchk
+      image: madhanmohanreddyeeda/github-repo-dispatch
 
 ---
 apiVersion: v1
