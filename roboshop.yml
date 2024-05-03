@@ -6,7 +6,7 @@ metadata:
     app: frontend
 spec:
   containers:
-    - name: nginx
+    - name: frontend
       image: madhanmohanreddyeeda/github-repo-frontend
       imagePullPolicy: Always
 
@@ -31,6 +31,7 @@ spec:
   containers:
     - name: catalogue
       image: madhanmohanreddyeeda/github-repo-catalogue
+      imagePullPolicy: Always
       volumeMounts:
       - mountPath: /parameters
         name: parameters
@@ -99,12 +100,13 @@ spec:
   containers:
     - name: cart
       image: madhanmohanreddyeeda/github-repo-cart
+      imagePullPolicy: Always
       volumeMounts:
         - mountPath: /parameters
           name: parameters
   volumes:
     - name: parameters
-      emptyDir: { }
+      emptyDir: {}
 
 ---
 apiVersion: v1
@@ -127,12 +129,13 @@ spec:
   containers:
     - name: shipping
       image: madhanmohanreddyeeda/github-repo-shipping
+      imagePullPolicy: Always
       volumeMounts:
         - mountPath: /parameters
           name: parameters
   volumes:
     - name: parameters
-      emptyDir: { }
+      emptyDir: {}
 
 ---
 apiVersion: batch/v1
@@ -145,7 +148,7 @@ spec:
     spec:
       volumes:
         - name: parameters
-          emptyDir: { }
+          emptyDir: {}
       initContainers:
         - name: parameters-pull
           image: docker.io/madhanmohanreddyeeda/github-repo-parameter-store-init-container-image
@@ -197,7 +200,7 @@ spec:
           name: parameters
   volumes:
     - name: parameters
-      emptyDir: { }
+      emptyDir: {}
 
 ---
 apiVersion: v1
@@ -232,12 +235,13 @@ spec:
   containers:
     - name: user
       image: madhanmohanreddyeeda/github-repo-user
+      imagePullPolicy: Always
       volumeMounts:
         - mountPath: /parameters
           name: parameters
   volumes:
     - name: parameters
-      emptyDir: { }
+      emptyDir: {}
 
 ---
 apiVersion: v1
