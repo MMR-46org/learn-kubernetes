@@ -135,7 +135,6 @@ spec:
       emptyDir: { }
 
 ---
-
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -144,10 +143,9 @@ spec:
   backoffLimit: 4
   template:
     spec:
-      restartPolicy: Never
       volumes:
         - name: parameters
-          emptyDir: {}
+          emptyDir: { }
       initContainers:
         - name: parameters-pull
           image: docker.io/madhanmohanreddyeeda/github-repo-parameter-store-init-container-image
@@ -170,6 +168,8 @@ spec:
           volumeMounts:
             - mountPath: /parameters
               name: parameters
+      restartPolicy: Never
+
 
 ---
 apiVersion: v1
