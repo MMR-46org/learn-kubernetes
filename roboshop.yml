@@ -195,6 +195,7 @@ spec:
   containers:
     - name: payment
       image: madhanmohanreddyeeda/github-repo-payment
+      imagePullPolicy: Always
       volumeMounts:
         - mountPath: /parameters
           name: parameters
