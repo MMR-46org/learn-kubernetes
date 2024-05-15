@@ -18,6 +18,14 @@ spec:
         - name: frontend
           image: madhanmohanreddyeeda/github-repo-frontend
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "250Mi"
+              cpu: "500m"
+            limits:
+              memory: "500Mi"
+              cpu: "750m"
+
 
 ---
 
@@ -51,6 +59,13 @@ spec:
         - name: catalogue
           image: madhanmohanreddyeeda/github-repo-catalogue
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "100Mi"
+              cpu: "100m"
+            limits:
+              memory: "150Mi"
+              cpu: "100m"
           volumeMounts:
             - mountPath: /parameters
               name: parameters
@@ -125,6 +140,13 @@ spec:
         - name: cart
           image: madhanmohanreddyeeda/github-repo-cart
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "100Mi"
+              cpu: "100m"
+            limits:
+              memory: "150Mi"
+              cpu: "100m"
           volumeMounts:
             - mountPath: /parameters
               name: parameters
@@ -164,6 +186,13 @@ spec:
         - name: shipping
           image: madhanmohanreddyeeda/github-repo-shipping
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "2Gi"
+              cpu: "1000m"
+            limits:
+              memory: "2.5Gi"
+              cpu: "1500m"
           volumeMounts:
           - mountPath: /parameters
             name: parameters
@@ -245,6 +274,13 @@ spec:
         - name: payment
           image: madhanmohanreddyeeda/github-repo-payment
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "200Mi"
+              cpu: "200m"
+            limits:
+              memory: "250Mi"
+              cpu: "250m"
           volumeMounts:
             - mountPath: /parameters
               name: parameters
@@ -284,6 +320,13 @@ spec:
         - name: user
           image: madhanmohanreddyeeda/github-repo-user
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "100Mi"
+              cpu: "100m"
+            limits:
+              memory: "150Mi"
+              cpu: "100m"
           volumeMounts:
             - mountPath: /parameters
               name: parameters
