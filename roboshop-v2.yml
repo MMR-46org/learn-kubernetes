@@ -165,8 +165,14 @@ spec:
           image: madhanmohanreddyeeda/github-repo-shipping
           imagePullPolicy: Always
           volumeMounts:
-            - mountPath: /parameters
-              name: parameters
+          - mountPath: /parameters
+            name: parameters
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            failureThreshold: 5
+            periodSeconds: 10
       volumes:
         - name: parameters
           emptyDir: { }
